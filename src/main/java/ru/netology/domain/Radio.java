@@ -8,7 +8,6 @@ public class Radio {
     public int volumeMax = 100;
 
     //Constructors
-    public Radio() {}
     public Radio(int countStation) {
         this.countStation = countStation;
     }
