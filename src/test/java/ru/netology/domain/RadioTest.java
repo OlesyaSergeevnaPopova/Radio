@@ -55,7 +55,7 @@ class RadioTest {
     }
 
     @Test
-    public void nextStationLowLimit() {
+    public void prevStationLowLimit() {
         radio1.setStation(0);
         radio1.prev();
         int actual = radio1.getCurrentStation();
@@ -66,9 +66,10 @@ class RadioTest {
 
     @Test
     public void prevStation() {
+        radio1.setStation(5);
         radio1.prev();
         int actual = radio1.getCurrentStation();
-        int expected = 9;
+        int expected = 4;
 
         assertEquals(expected, actual);
     }
