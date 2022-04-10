@@ -4,6 +4,13 @@ public class Radio {
 
     public int currentStation;
     public int currentVolume;
+    public int countStation = 10;
+    public int volumeMax = 100;
+
+    //Constructors
+    public Radio(int countStation) {
+        this.countStation = countStation;
+    }
 
     public int getCurrentStation() {
         return currentStation;
@@ -17,14 +24,14 @@ public class Radio {
         if (newStation < 0) {
             return;
         }
-        if (newStation > 9) {
+        if (newStation > countStation) {
             return;
         }
         currentStation = newStation;
     }
 
     public void next() {
-        if (currentStation == 9) {
+        if (currentStation == countStation - 1) {
             currentStation = 0;
             return;
         }
@@ -33,14 +40,14 @@ public class Radio {
 
     public void prev() {
         if (currentStation == 0) {
-            currentStation = 9;
+            currentStation = countStation - 1;
             return;
         }
         currentStation = currentStation - 1;
     }
 
     public void setVolume(int volume) {
-        if (volume > 10) {
+        if (volume > volumeMax) {
             return;
         }
         if (volume < 0) {
@@ -50,7 +57,7 @@ public class Radio {
     }
 
     public void increaseVolume() {
-        if (currentVolume < 10) {
+        if (currentVolume < volumeMax) {
             currentVolume = currentVolume + 1;
         }
     }
